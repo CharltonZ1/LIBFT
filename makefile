@@ -63,6 +63,8 @@ SRC =		ft_atoi.c\
 			ft_islower.c\
 			ft_strjoin_memdel.c\
 			get_next_line.c\
+			ft_itoa_base.c\
+			ft_atoi_base.c\
 
 all : $(NAME)
 
