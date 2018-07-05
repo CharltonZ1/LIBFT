@@ -6,7 +6,7 @@
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 09:08:57 by chadams           #+#    #+#             */
-/*   Updated: 2018/06/23 14:04:14 by chadams          ###   ########.fr       */
+/*   Updated: 2018/07/05 20:43:19 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "./gnl/get_next_line.h"
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
