@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   readfile.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/30 01:05:13 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 00:08:57 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/06 01:15:45 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/06 02:14:25 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+int	readfile(int fd, char **buf)
 {
-	char	*dup;
+	int i;
 
-	dup = (char *)malloc((ft_strlen(s1) + 1));
-	if (dup == NULL)
-		return (NULL);
-	ft_strncpy(dup, s1, n);
-	dup[n] = '\0';
-	return (dup);
+	i = 0;
+	if (!fd || !buf || fd < 0)
+		return (-1);
+	while (get_next_line(fd, &buf[i]) != 0)
+		++i;
+	return (0);
 }

@@ -65,6 +65,9 @@ SRC =		ft_atoi.c\
 			get_next_line.c\
 			ft_itoa_base.c\
 			ft_atoi_base.c\
+			ft_strndup.c\
+			print_file.c\
+			readfile.c\
 
 all : $(NAME)
 
