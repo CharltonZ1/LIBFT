@@ -6,7 +6,7 @@
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 09:08:57 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/05 23:55:18 by chadams          ###   ########.fr       */
+/*   Updated: 2018/07/06 02:14:34 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,8 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strjoin_memdel(char const *s1, char const *s2);
 char	*ft_itoa_base(int value, int base);
 int		ft_atoi_base(char *str, int base);
+char	*ft_strndup(const char *s1, size_t n);
+int		print_file(int fd);
+int		readfile(int fd, char **buf);
 
 #endif
