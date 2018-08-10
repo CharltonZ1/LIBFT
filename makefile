@@ -68,17 +68,44 @@ SRC =		ft_atoi.c\
 			ft_strndup.c\
 			print_file.c\
 			readfile.c\
+			ft_lst_size.c\
+			ft_lstadd_after.c\
+			ft_lstadd_before.c\
+			ft_lstadd.c\
+			ft_lstapp.c\
+			ft_lstfind.c\
+			ft_lstiter.c\
+			ft_lstnew.c\
+			./ft_printf/buffer.c\
+        	./ft_printf/ft_check_fmt.c\
+        	./ft_printf/ft_find_flag.c\
+        	./ft_printf/ft_print_error.c\
+        	./ft_printf/ft_printf.c\
+        	./ft_printf/ft_printf_base.c\
+        	./ft_printf/ft_printf_base_tools.c\
+        	./ft_printf/ft_printf_nbr.c\
+        	./ft_printf/ft_printf_nbr_tools.c\
+        	./ft_printf/ft_printf_putchar.c\
+        	./ft_printf/ft_printf_string.c\
+        	./ft_printf/ft_printf_stringuni.c\
+        	./ft_printf/ft_printf_stringuni2.c\
+        	./ft_printf/ft_putchar_uni.c\
+        	./ft_printf/ft_putchar_uni2.c\
+        	./ft_printf/ft_type.c\
 
 all : $(NAME)
 
 $(NAME) :
-		$(TAG) $(FLAG) -c $(SRC)
-		ar rc $(NAME) *.o
-		ranlib $(NAME)
+		@$(TAG) $(FLAG) -c $(SRC)
+		@ar rc $(NAME) *.o
+		@ranlib $(NAME)
+		@echo "Library Created!"
 clean:
-		rm -f *.o
+		@rm -f *.o
+		@echo "Objects Removed!"
 
 fclean: clean
-		rm -f libft.a
+		@rm -f libft.a
+		@echo "Library Removed!"
 
 re:		fclean all

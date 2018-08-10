@@ -17,7 +17,7 @@ char	*ft_strndup(const char *s1, size_t n)
 	char	*dup;
 
 	if (!s1 || !n)
-		return (NULL)
+		return (NULL);
 	dup = ft_strnew(n);
 	if (dup == NULL)
 		return (NULL);

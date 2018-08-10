@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_file.c                                       :+:      :+:    :+:   */
+/*   ft_lstfind.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 00:45:01 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 01:16:17 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/10 22:41:55 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/10 22:45:12 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line.h"
+#include "./libft.h"
 
-int	print_file(int fd)
+t_list	*ft_lstfind(t_list *lst, t_list *elem)
 {
-	static char	*buffer;
+	t_list	*cursor;
 
-	if (!fd || fd < 0)
-		return (-1);
-	while (get_next_line(fd, &buffer) != 0)
+	cursor = lst;
+	while (cursor)
 	{
-		ft_putstr(buffer);
-		ft_putchar('\n');
+		if (cursor->next == elem)
+			return (cursor);
+		cursor = cursor->next;
 	}
-	return (0);
+	return (NULL);
 }

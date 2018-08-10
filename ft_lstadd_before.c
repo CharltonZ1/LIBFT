@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_file.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_before.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 00:45:01 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 01:16:17 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/11 17:42:19 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/11 17:54:13 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line.h"
+#include "./libft.h"
 
-int	print_file(int fd)
+void	ft_lstadd_before(t_list *lst, t_list *nxt, t_list *elem)
 {
-	static char	*buffer;
-
-	if (!fd || fd < 0)
-		return (-1);
-	while (get_next_line(fd, &buffer) != 0)
+	if (!lst || !elem || !nxt)
+		return ;
+	if (lst == nxt)
 	{
-		ft_putstr(buffer);
-		ft_putchar('\n');
+		ft_lstadd(&lst, elem);
+		return ;
 	}
-	return (0);
+	else
+	{
+		while (lst != NULL)
+		{
+			if (lst->next == nxt)
+				break ;
+			lst = lst->next;
+		}
+		if (lst != NULL)
+		{
+			elem->next = lst->next;
+			lst->next = elem;
+		}
+	}
 }

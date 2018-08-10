@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_file.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_after.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 00:45:01 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 01:16:17 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/11 17:47:07 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/11 17:51:07 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line.h"
+#include "./libft.h"
 
-int	print_file(int fd)
+void	ft_lstadd_after(t_list *lst, t_list *prev, t_list *elem)
 {
-	static char	*buffer;
-
-	if (!fd || fd < 0)
-		return (-1);
-	while (get_next_line(fd, &buffer) != 0)
+	if (!lst || !prev || !elem)
+		return ;
+	while (lst != prev)
+		lst = lst->next;
+	if (lst->next != NULL)
 	{
-		ft_putstr(buffer);
-		ft_putchar('\n');
+		elem->next = lst->next;
+		lst->next = elem;
 	}
-	return (0);
+	else
+		ft_lstapp(lst, elem);
 }

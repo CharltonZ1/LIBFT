@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_file.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 00:45:01 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 01:16:17 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/10 00:35:22 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/10 00:38:42 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line.h"
+#include "./libft.h"
 
-int	print_file(int fd)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	static char	*buffer;
+	t_list	*new_lst;
 
-	if (!fd || fd < 0)
-		return (-1);
-	while (get_next_line(fd, &buffer) != 0)
+	new_lst = (t_list *)malloc(sizeof(t_list));
+	if (!content || content == 0)
 	{
-		ft_putstr(buffer);
-		ft_putchar('\n');
+		new_lst->content = NULL;
+		new_lst->content_size = 0;
 	}
-	return (0);
+	else
+	{
+		new_lst->content = (void *)content;
+		new_lst->content_size = content_size;
+	}
+	new_lst->next = NULL;
+	return (new_lst);
 }

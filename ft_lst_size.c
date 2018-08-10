@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_file.c                                       :+:      :+:    :+:   */
+/*   ft_lst_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chadams <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 00:45:01 by chadams           #+#    #+#             */
-/*   Updated: 2018/07/06 01:16:17 by chadams          ###   ########.fr       */
+/*   Created: 2018/07/10 01:26:12 by chadams           #+#    #+#             */
+/*   Updated: 2018/07/13 09:10:32 by chadams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line.h"
+#include "./libft.h"
 
-int	print_file(int fd)
+int	ft_lst_size(t_list *lst)
 {
-	static char	*buffer;
+	int		c;
+	t_list	*cursor;
 
-	if (!fd || fd < 0)
+    c = 0;
+	cursor = lst;
+	if (!lst)
 		return (-1);
-	while (get_next_line(fd, &buffer) != 0)
+	while (cursor)
 	{
-		ft_putstr(buffer);
-		ft_putchar('\n');
+		++c;
+		cursor = cursor->next;
 	}
-	return (0);
+	return (c);
 }
